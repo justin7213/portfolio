@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Justin | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Portfolio, Web Developer">
+    <meta name="description" content="Justin's Personal Portfolio">
+    <meta name="google-site-verification" content="xE40FBv0GMj9UwFYysQ4tymj-lMxG5AJl_91umD96v4" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- css -->
+    <link rel="stylesheet" href="includes/style.css">
+
+    <!-- js -->
+    <script src="includes/java.js" defer></script>
+
+    
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Justin Andersen</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="https://wa.me/62895337089064" target="_blank">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- LANDING PAGE / HERO -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Hello, I'm <span>Justin</span></h1>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="https://wa.me/62895337089064" target="_blank" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="about-grid">
+                <h1> About Me </h1>
+                <div class="about-intro">
+                    <img src="images/justin.jpg" alt="Justin Andersen">
+                    <p class="highlight">Hello, my name is <strong>Justin</strong> I'm a passionate web developer with a strong foundation in both frontend and backend technologies. I'm currently expanding my knowledge about programming and design. I'm targetting to be a well-rounded developer in the future.</p>
+                </div>
+                
+                <div class="about-cards">
+                    <div class="marquee">
+                        <div class="marquee-track" id="marqueeTrack"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" class="projects">
+            <div class="projects-grid">
+                <h1>Projects</h1>
+                <p>Here are some of the projects I've worked on. Each project showcases my skills and dedication to creating high-quality web applications.</p>
+
+                <!-- Filter controls -->
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>Category:</label>
+                        <button data-filter-type="category" data-filter-value="all" onclick="setFilter('category', 'all')">All</button>
+                        <button data-filter-type="category" data-filter-value="professional" onclick="setFilter('category', 'professional')">Professional</button>
+                        <button data-filter-type="category" data-filter-value="mini" onclick="setFilter('category', 'mini')">Mini Project</button>
+                    </div>
+                    <div class="filter-group">
+                        <label>Type:</label>
+                        <button data-filter-type="team" data-filter-value="all" onclick="setFilter('team', 'all')">All</button>
+                        <button data-filter-type="team" data-filter-value="team" onclick="setFilter('team', 'team')">Team</button>
+                        <button data-filter-type="team" data-filter-value="individual" onclick="setFilter('team', 'individual')">Individual</button>
+                    </div>
+                    <div class="filter-group">
+                        <label>Sort:</label>
+                        <button data-filter-type="sort" data-filter-value="newest" onclick="setFilter('sort', 'newest')">Newest</button>
+                        <button data-filter-type="sort" data-filter-value="oldest" onclick="setFilter('sort', 'oldest')">Oldest</button>
+                    </div>
+                </div>
+
+                <div class="projects-container" id="projectsContainer"></div>
+                <div class="pagination" id="pagination"></div>
+            </div>
+        </section>
+    </main>
+
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p><span>Thankyou For Coming</span></p>
+        </div>
+
+        
+    </footer>
+    
+
+    
+</body>
+</html>
