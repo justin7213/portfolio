@@ -40,7 +40,7 @@ const library = [
     {
         title: "Theme Switcher",
         desc: "A simple JavaScript snippet to toggle between light and dark themes on a website.",
-        language: "JavaScript",
+        language: "Javascript",
         link: "https://github.com/justin7213/theme-switcher",
     }
 ]
@@ -167,7 +167,7 @@ function setFilter(type, value) {
 }
 
 function updateActiveButtons() {
-    document.querySelectorAll('.filter-group button').forEach(btn => {
+    document.querySelectorAll('.filters .filter-group button').forEach(btn => {
         const type = btn.dataset.filterType;
         const value = btn.dataset.filterValue;
         
@@ -182,6 +182,13 @@ function updateActiveButtons() {
 updateActiveButtons();
 renderProjects();
 
+
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
+//--------------------------------------------------------
 
 
 // Library filtering and pagination
@@ -222,11 +229,11 @@ function setLibraryFilter(type, value) {
     updateActiveLibraryButtons();
     renderLibrary();
 }
-
 function updateActiveLibraryButtons() {
-    document.querySelectorAll('.library-filters button').forEach(btn => {
+    document.querySelectorAll('.library-filters .filter-group button').forEach(btn => {
         const type = btn.dataset.filterType;
         const value = btn.dataset.filterValue;
+        
         if (currentLibraryFilters[type] === value) {
             btn.classList.add('active');
         } else {

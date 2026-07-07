@@ -333,6 +333,8 @@
         border-color: var(--lightblue);
     }
 
+    
+
     .projects-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -367,7 +369,7 @@
         font-weight: 600;
         text-transform: uppercase;
     }
-
+    
     .badge-professional {
         background: var(--lightblue);
         color: var(--primary);
