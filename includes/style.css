@@ -18,6 +18,10 @@
         font-family: 'Inter', sans-serif;
     }
 
+    html {
+        scroll-behavior: smooth;
+    }
+
     body {
         background: var(--light);
         color: var(--dark);
@@ -153,6 +157,7 @@
 
     /* ===== SECTION ===== */
     section {
+        scroll-margin-top: 60px; /* sesuaikan dengan tinggi navbar kamu */
         max-width: 1100px;
         margin: auto;
         padding: 2rem 1.5rem;
@@ -180,10 +185,6 @@
         padding: 0px 20px;
     }
 
-    .about-grid h1 {
-        text-align: left;
-        margin-bottom: 20px;
-    }
 
     .about-intro {
         display: flex;
@@ -425,11 +426,11 @@
 
 
     .pagination {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-top: 2rem;
-}
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 2rem;
+    }
 
     .pagination button {
         padding: 0.4rem 0.8rem;
@@ -456,9 +457,59 @@
         cursor: not-allowed;
     }
 
+    /* ===== Library ===== */
+
+    .library {
+        background: var(--lightblue);
+    }
+
+    .library-grid {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0px 20px;
+    }
+
+    .library-grid p {
+        margin-bottom: 10px;
+        color: var(--navy);
+    }
+
+
+    .library-search {
+        margin: 1rem 0 1.5rem;
+    }
+
+    .library-search input {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border: 2px solid var(--border);
+        border-radius: 0.75rem;
+        font-size: 0.95rem;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+
+    .library-search input:focus {
+        border-color: var(--primary);
+    }
+
+    .library-card {
+       background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    } 
+    
+    .library-card:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+        transform: translateY(-3px);
+        transition: all 0.3s ease;
+    }
+
     /* ===== FOOTER ===== */
     footer {
-        background: var(--lightblue);
+        background: linear-gradient(180deg, var(--lightblue), white);
         color: var(--primary);
         padding: 2rem 1.5rem;
         height: 5rem;
@@ -485,8 +536,27 @@
         background-color: rgb(230, 230, 230);
     }
 
-    @media (min-width: 768px) {
-        .hero h1 {
-            font-size: 3rem;
+    /* ===== MEDIA QUERIES ===== */
+
+    @media (max-width: 768px) {
+
+        section {
+            padding: 1.5rem 1rem;
+            align-items: center;
+            text-align: center;
         }
+    
+
+        .about-intro {
+           flex-direction: column;
+           align-items: center;
+           text-align: center;
+           gap: 20px;
+        }
+
+        .highlight {
+            text-align: center;
+        }
+
+
     }

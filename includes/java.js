@@ -36,6 +36,15 @@ const projects = [
     },
 ];
 
+const library = [
+    {
+        title: "Theme Switcher",
+        desc: "A simple JavaScript snippet to toggle between light and dark themes on a website.",
+        language: "JavaScript",
+        link: "https://github.com/justin7213/theme-switcher",
+    }
+]
+
 
 function renderMarquee() {
     const track = document.getElementById('marqueeTrack');
@@ -48,13 +57,13 @@ function renderMarquee() {
         </div>
     `).join('');
 
-    // Duplikat 2x biar animasi loop mulus
+    // Duplikat 2x
     track.innerHTML = cardsHTML + cardsHTML;
 }
 
 renderMarquee();
 
-
+// Projects filtering and pagination
 let currentFilters = {
     category: "all",
     team: "all",
@@ -172,3 +181,64 @@ function updateActiveButtons() {
 
 updateActiveButtons();
 renderProjects();
+
+
+
+// Library filtering and pagination
+let currentLibraryFilters = {
+    language: "all",
+    search: ""
+};
+
+function renderLibrary() {
+    const container = document.getElementById('libraryContainer');
+
+    // Filter berdasarkan bahasa + search
+    let filtered = library.filter(p => {
+        const matchLanguage = currentLibraryFilters.language === "all" || p.language === currentLibraryFilters.language;
+        const matchSearch = p.title.toLowerCase().includes(currentLibraryFilters.search) ||
+                             p.desc.toLowerCase().includes(currentLibraryFilters.search);
+        return matchLanguage && matchSearch;
+    });
+
+    if (filtered.length === 0) {
+        container.innerHTML = `<p class="no-result">No resources found.</p>`;
+        return;
+    }
+
+    container.innerHTML = filtered.map(p => `
+        <div class="library-card" onclick="window.open('${p.link || '#'}', '_blank')">
+            <div class="library-header">
+                <h3>${p.title}</h3>
+                <span class="badge badge-${p.language}">${p.language}</span>
+            </div>
+            <p class="library-desc">${p.desc}</p>
+        </div>
+    `).join('');
+}
+
+function setLibraryFilter(type, value) {
+    currentLibraryFilters[type] = value;
+    updateActiveLibraryButtons();
+    renderLibrary();
+}
+
+function updateActiveLibraryButtons() {
+    document.querySelectorAll('.library-filters button').forEach(btn => {
+        const type = btn.dataset.filterType;
+        const value = btn.dataset.filterValue;
+        if (currentLibraryFilters[type] === value) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
+function handleLibrarySearch(value) {
+    currentLibraryFilters.search = value.toLowerCase().trim();
+    renderLibrary();
+}
+
+updateActiveLibraryButtons();
+renderLibrary();

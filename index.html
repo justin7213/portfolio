@@ -11,11 +11,16 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     <!-- css -->
     <link rel="stylesheet" href="includes/style.css">
 
     <!-- js -->
     <script src="includes/java.js" defer></script>
+
+   
 
     
 
@@ -29,7 +34,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="https://wa.me/62895337089064" target="_blank">Contact</a></li>
+                <li><a href="#library">Library</a></li>
             </ul>
         </nav>
     </header>
@@ -48,7 +53,7 @@
 
         <section id="about" class="about">
             <div class="about-grid">
-                <h1> About Me </h1>
+                <h1>About Me</h1>
                 <div class="about-intro">
                     <img src="images/justin.jpg" alt="Justin Andersen">
                     <p class="highlight">Hello, my name is <strong>Justin</strong> I'm a passionate web developer with a strong foundation in both frontend and backend technologies. I'm currently expanding my knowledge about programming and design. I'm targetting to be a well-rounded developer in the future.</p>
@@ -91,6 +96,31 @@
 
                 <div class="projects-container" id="projectsContainer"></div>
                 <div class="pagination" id="pagination"></div>
+            </div>
+        </section>
+
+
+        <!-- LIBRARY -->
+        <section id="library" class="library">
+            <div class="library-grid">
+                <h1>Library</h1>
+                <p>Explore my library of resources, including code snippets, tutorials, and other helpful materials that I've compiled to assist fellow developers.</p>
+                
+                <div class="library-filters">
+                    <div class="filter-group">
+                        <label>Language:</label>
+                        <button data-filter-type="language" data-filter-value="all" onclick="setLibraryFilter('language', 'all')">All</button>
+                        <button data-filter-type="language" data-filter-value="javascript" onclick="setLibraryFilter('language', 'javascript')">JavaScript</button>
+                        <button data-filter-type="language" data-filter-value="html" onclick="setLibraryFilter('language', 'html')">HTML</button>
+                        <button data-filter-type="language" data-filter-value="python" onclick="setLibraryFilter('language', 'python')">Python</button>
+                    </div>
+                </div>
+
+                <div class="library-search">
+                    <input type="text" id="librarySearchInput" placeholder="Search resources..." oninput="handleLibrarySearch(this.value)">
+                </div>
+
+                <div class="library-container" id="libraryContainer"></div>
             </div>
         </section>
     </main>
